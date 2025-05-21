@@ -13,6 +13,9 @@ import { FavoritesController } from './favorites/favorites.controller';
     HttpModule.register({
       timeout: 5000,
       maxRedirects: 5,
+      headers: {
+        'User-Agent': 'GitHub-Explorer-Backend'
+      }
     }),
     GithubModule,
   ],
