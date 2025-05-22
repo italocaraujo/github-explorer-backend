@@ -5,7 +5,14 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
+  @Get('debug')
+  async debug() {
+  return {
+    status: 'ok',
+    nodeEnv: process.env.NODE_ENV,
+    githubToken: process.env.GITHUB_TOKEN ? 'exists' : 'missing'
+  };
+}
   getHello(): string {
     return this.appService.getHello();
   }
